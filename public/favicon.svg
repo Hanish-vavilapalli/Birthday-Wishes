@@ -1,3 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y=".9em" font-size="90">❤️</text>
+  <defs>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5B79" />
+      <stop offset="50%" stop-color="#E6274B" />
+      <stop offset="100%" stop-color="#B81432" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <path
+    d="M 50,86 C 24,62 8,46 8,28 C 8,14 18,4 32,4 C 40,4 47,8 50,14 C 53,8 60,4 68,4 C 82,4 92,14 92,28 C 92,46 76,62 50,86 Z"
+    fill="url(#heartGrad)"
+    filter="url(#glow)"
+  />
 </svg>
