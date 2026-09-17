@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import memoryCoffee from "@/assets/memory-coffee.jpg";
 import memoryHands from "@/assets/memory-hands.jpg";
 import memoryWalk from "@/assets/memory-walk.jpg";
+import { ProposalFinale } from "@/components/ProposalFinale";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -230,6 +231,9 @@ function BirthdayLetter() {
           </div>
         </div>
       </section>
+
+      {/* 06 · The Proposal & Celebration Finale */}
+      <ProposalFinale />
     </main>
   );
 }
