@@ -63,6 +63,29 @@ html { scroll-behavior: smooth; background: var(--background); }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
 ::selection { background: var(--primary); color: var(--primary-foreground); }
 
+/* Remove / Purge Lovable badge and branding */
+#lovable-badge,
+aside#lovable-badge,
+[id*="lovable-badge"],
+[class*="lovable-badge"],
+[id*="lovable"],
+a[href*="lovable.dev"],
+button[aria-label*="Lovable"],
+a[title*="Lovable"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -99999 !important;
+  clip-path: inset(100%) !important;
+  overflow: hidden !important;
+}
+
 .love-letter { position: relative; min-height: 100vh; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, var(--background), oklch(0.13 0.025 15), var(--background)); }
 .ambient-glow { position: fixed; z-index: -2; inset: -25%; background: var(--ambient); animation: breathe 12s ease-in-out infinite alternate; pointer-events: none; }
 .vignette { position: fixed; z-index: 10; inset: 0; pointer-events: none; box-shadow: inset 0 0 14vw oklch(0.04 0.01 15 / 80%); }

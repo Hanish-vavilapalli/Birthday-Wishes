@@ -82,7 +82,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "With love" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -92,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,
@@ -117,6 +116,23 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const purgeLovable = () => {
+      document
+        .querySelectorAll(
+          '#lovable-badge, aside#lovable-badge, [id*="lovable-badge"], [class*="lovable-badge"], a[href*="lovable.dev"]',
+        )
+        .forEach((element) => {
+          element.remove();
+        });
+    };
+
+    purgeLovable();
+    const observer = new MutationObserver(purgeLovable);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
