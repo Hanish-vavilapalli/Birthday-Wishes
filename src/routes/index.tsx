@@ -38,6 +38,21 @@ const memories = [
   { src: memoryCoffee, caption: "I wish I could go back to this moment.", alt: "Two cups of coffee by a window at night" },
 ];
 
+const floatingElements = [
+  { char: "♥", className: "fly-elem fly-1", style: { left: "8%", animationDelay: "-3s", animationDuration: "16s", fontSize: "22px" } },
+  { char: "✦", className: "fly-elem fly-2", style: { left: "18%", animationDelay: "-9s", animationDuration: "20s", fontSize: "14px" } },
+  { char: "♥", className: "fly-elem fly-3", style: { left: "28%", animationDelay: "-14s", animationDuration: "18s", fontSize: "16px" } },
+  { char: "✧", className: "fly-elem fly-1", style: { left: "38%", animationDelay: "-6s", animationDuration: "22s", fontSize: "18px" } },
+  { char: "♥", className: "fly-elem fly-2", style: { left: "48%", animationDelay: "-11s", animationDuration: "15s", fontSize: "26px" } },
+  { char: "⋆", className: "fly-elem fly-3", style: { left: "58%", animationDelay: "-2s", animationDuration: "19s", fontSize: "15px" } },
+  { char: "♥", className: "fly-elem fly-1", style: { left: "68%", animationDelay: "-16s", animationDuration: "17s", fontSize: "20px" } },
+  { char: "✦", className: "fly-elem fly-2", style: { left: "78%", animationDelay: "-8s", animationDuration: "21s", fontSize: "16px" } },
+  { char: "♥", className: "fly-elem fly-3", style: { left: "88%", animationDelay: "-13s", animationDuration: "16s", fontSize: "24px" } },
+  { char: "♥", className: "fly-elem fly-1", style: { left: "94%", animationDelay: "-5s", animationDuration: "23s", fontSize: "14px" } },
+  { char: "✧", className: "fly-elem fly-2", style: { left: "14%", animationDelay: "-18s", animationDuration: "24s", fontSize: "17px" } },
+  { char: "♥", className: "fly-elem fly-3", style: { left: "82%", animationDelay: "-1s", animationDuration: "14s", fontSize: "18px" } },
+];
+
 function BirthdayLetter() {
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
@@ -61,6 +76,20 @@ function BirthdayLetter() {
     <main className="love-letter">
       <div className="ambient-glow" aria-hidden="true" />
       <div className="vignette" aria-hidden="true" />
+
+      {/* Floating & Flying Background Elements */}
+      <div className="flying-canvas" aria-hidden="true">
+        {floatingElements.map((item, index) => (
+          <span
+            key={index}
+            className={item.className}
+            style={item.style}
+          >
+            {item.char}
+          </span>
+        ))}
+      </div>
+
       <div className="particles" aria-hidden="true">
         {Array.from({ length: 16 }, (_, index) => (
           <i className={`particle particle-${index + 1}`} key={index} />
@@ -79,6 +108,7 @@ function BirthdayLetter() {
             a fresh heart,<br />
             and many beautiful reasons to smile.”
           </blockquote>
+          <div className="hero-floating-heart" aria-hidden="true">♥</div>
           <div className="scroll-cue" aria-hidden="true"><span /></div>
         </div>
       </section>

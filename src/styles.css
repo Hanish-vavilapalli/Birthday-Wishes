@@ -218,6 +218,142 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
 .signature { margin-top: 7rem; display: flex; flex-direction: column; gap: .5rem; color: var(--muted-foreground); }
 .signature strong { color: var(--rose-light); font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; font-style: italic; }
 
+.flying-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fly-elem {
+  position: absolute;
+  bottom: -45px;
+  color: var(--rose-light);
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px color-mix(in oklab, var(--primary) 70%, transparent));
+  will-change: transform, opacity;
+}
+
+.fly-1 {
+  animation: flyUpSway1 linear infinite;
+}
+
+.fly-2 {
+  animation: flyUpSway2 linear infinite;
+  color: color-mix(in oklab, var(--rose-soft) 85%, white);
+}
+
+.fly-3 {
+  animation: flyUpSway3 linear infinite;
+}
+
+.hero-floating-heart {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-size: 1.9rem;
+  color: var(--primary);
+  animation: floatBob 3.5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 12px color-mix(in oklab, var(--primary) 80%, transparent));
+}
+
+.choice-pill {
+  animation: floatPill 5s ease-in-out infinite alternate;
+}
+.choice-pill:nth-child(2) {
+  animation-delay: -1.7s;
+}
+.choice-pill:nth-child(3) {
+  animation-delay: -3.4s;
+}
+
+.memory-frame {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+}
+.memory:hover .memory-frame {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 40px 100px oklch(0.72 0.12 20 / 25%);
+}
+
+@keyframes floatBob {
+  0% { transform: translateY(0) scale(1); opacity: 0.85; }
+  50% { transform: translateY(-14px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-4px) scale(1.05); opacity: 0.9; }
+}
+
+@keyframes floatPill {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
+}
+
+@keyframes flyUpSway1 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.55;
+  }
+  30% {
+    transform: translateY(-35vh) translateX(35px) rotate(12deg) scale(1);
+  }
+  60% {
+    transform: translateY(-70vh) translateX(-25px) rotate(-8deg) scale(1.05);
+  }
+  88% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-118vh) translateX(25px) rotate(20deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes flyUpSway2 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.75);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.48;
+  }
+  40% {
+    transform: translateY(-45vh) translateX(-40px) rotate(-15deg) scale(1);
+  }
+  75% {
+    transform: translateY(-80vh) translateX(30px) rotate(10deg) scale(0.95);
+  }
+  90% {
+    opacity: 0.48;
+  }
+  100% {
+    transform: translateY(-118vh) translateX(-15px) rotate(-12deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes flyUpSway3 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(-6deg) scale(0.85);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-55vh) translateX(45px) rotate(15deg) scale(1.1);
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-118vh) translateX(-30px) rotate(-18deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
 @keyframes heroReveal { from{opacity:0;transform:translateY(18px);filter:blur(7px)} to{opacity:1;transform:none;filter:blur(0)} }
 @keyframes fadeOnly { to{opacity:.65} }
 @keyframes breathe { from{transform:translate(-3%,-2%) scale(.95)} to{transform:translate(4%,3%) scale(1.08)} }
