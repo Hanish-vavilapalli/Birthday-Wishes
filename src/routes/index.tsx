@@ -34,7 +34,7 @@ const littleThings = [
 
 const memories = [
   { src: memoryWalk, caption: "That day ❤️", alt: "Two people walking together beneath evening streetlights" },
-  { src: memoryHands, caption: "One of my favorite memories.", alt: "Two hands held together beside a rainy window" },
+  { src: memoryHands, caption: "One of my favorite memories.", alt: "Two hands held together gently in golden sunset light" },
   { src: memoryCoffee, caption: "I wish I could go back to this moment.", alt: "Two cups of coffee by a window at night" },
 ];
 
