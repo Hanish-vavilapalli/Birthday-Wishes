@@ -26,10 +26,10 @@ export const Route = createFileRoute("/")({
 });
 
 const littleThings = [
-  ["Your smile.", "The one that can change the shape of my entire day."],
-  ["Your voice.", "Somehow, it always feels like coming home."],
-  ["The way you care.", "Even about the smallest things no one else notices."],
-  ["Your heart.", "Soft, brave, and more beautiful than you know."],
+  "Your smile.",
+  "Your kindness.",
+  "The way you care.",
+  "The little things you do without even realizing.",
 ];
 
 const memories = [
@@ -73,49 +73,91 @@ function BirthdayLetter() {
       <section className="hero-section" aria-labelledby="birthday-title">
         <div className="hero-content">
           <p className="hero-kicker">A little piece of my heart, for you</p>
-          <h1 id="birthday-title">Happiest Birthday, Nanna <span aria-hidden="true">♥</span></h1>
+          <h1 id="birthday-title">Happiest Birthday, Nanna <span aria-hidden="true">❤️</span></h1>
           <blockquote>
-            “If I could give you one thing today,<br />
-            it would be the ability to see yourself<br />
-            through my eyes.”
+            “I hope this birthday brings you a new beginning,<br />
+            a fresh heart,<br />
+            and many beautiful reasons to smile.”
           </blockquote>
           <div className="scroll-cue" aria-hidden="true"><span /></div>
         </div>
       </section>
 
+      {/* 01 · Our story */}
       <section className="story-section content-section" aria-labelledby="story-title">
         <div className="narrow-copy">
           <p className="section-number" data-reveal>01 · Our story</p>
           <h2 id="story-title" data-reveal>And then, there was us…</h2>
           <div className="story-lines">
-            <p data-reveal>I didn’t know that an ordinary day</p>
-            <p data-reveal>would become one of the most important parts of my life.</p>
-            <p data-reveal>Somewhere between the little conversations,</p>
-            <p data-reveal>the laughter, and the quiet moments—</p>
-            <p data-reveal>you became someone I never wanted to imagine life without.</p>
+            <p data-reveal>I’m grateful for every moment that brought you into my life.</p>
+            <p data-reveal>The laughs, the little conversations, the memories, and even the difficult days.</p>
+            <p data-reveal>Everything has been a part of your journey.</p>
+            <p data-reveal className="story-highlight">And today, I just want you to look forward.</p>
           </div>
         </div>
       </section>
 
+      {/* 02 · A new beginning */}
+      <section className="beginning-section content-section" aria-labelledby="beginning-title">
+        <div className="narrow-copy">
+          <p className="section-number" data-reveal>02 · A new beginning</p>
+          <h2 id="beginning-title" data-reveal>Let today be the start of something beautiful.</h2>
+          <div className="beginning-lines">
+            <p data-reveal>Leave behind the things that hurt you.</p>
+            <p data-reveal>Don't keep living in the moments that made you sad.</p>
+            <p data-reveal>Don't be afraid of the mistakes you made.</p>
+            <div className="growth-text" data-reveal>
+              <p>You learned from them.</p>
+              <p>You grew from them.</p>
+            </div>
+            <div className="highlight-callout" data-reveal>
+              <p>From this birthday, start your life with a fresh heart.</p>
+            </div>
+            <div className="choices-pill-group" data-reveal>
+              <span className="choice-pill">Choose peace.</span>
+              <span className="choice-pill">Choose happiness.</span>
+              <span className="choice-pill">Choose yourself.</span>
+            </div>
+            <p data-reveal className="comfort-line">
+              And whenever life feels difficult, remember that you don't have to face everything alone.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 · The little things */}
       <section className="things-section content-section" aria-labelledby="things-title">
         <div className="narrow-copy">
-          <p className="section-number" data-reveal>02 · The little things</p>
-          <h2 id="things-title" data-reveal>The ways you make life softer.</h2>
+          <p className="section-number" data-reveal>03 · The little things</p>
+          <h2 id="things-title" data-reveal>The things that make you, you.</h2>
           <div className="things-list">
-            {littleThings.map(([title, body], index) => (
-              <article className="thing" data-reveal key={title}>
+            {littleThings.map((item, index) => (
+              <article className="thing" data-reveal key={item}>
                 <span className="thing-index">0{index + 1}</span>
-                <div><h3>{title}</h3><p>{body}</p></div>
+                <div>
+                  <h3>{item}</h3>
+                </div>
               </article>
             ))}
           </div>
+          <div className="things-closing" data-reveal>
+            <p className="special-note">These are the things that make you special.</p>
+            <p className="worth-note">Never change who you are just because someone failed to see your worth.</p>
+          </div>
         </div>
       </section>
 
+      {/* 04 · Our memories */}
       <section className="memories-section content-section" aria-labelledby="memories-title">
         <div className="section-heading">
-          <p className="section-number" data-reveal>03 · Our memories</p>
-          <h2 id="memories-title" data-reveal>Pieces of time I keep returning to.</h2>
+          <p className="section-number" data-reveal>04 · Our memories</p>
+          <h2 id="memories-title" data-reveal>Moments I’ll always keep close.</h2>
+          <div className="memories-text" data-reveal>
+            <p>Every picture holds a little piece of our story.</p>
+            <p>Some moments are gone.</p>
+            <p>Some moments will stay forever.</p>
+            <p className="memories-heart">And I'm happy that I got to share them with you. <span aria-hidden="true">❤️</span></p>
+          </div>
         </div>
         <div className="memory-album">
           {memories.map((memory, index) => (
@@ -129,27 +171,33 @@ function BirthdayLetter() {
         </div>
       </section>
 
-      <section className="pause-section" aria-label="A moment to pause">
-        <div className="pause-copy">
-          <p data-reveal>Some memories become photographs.</p>
-          <p data-reveal>Some become a part of us.</p>
-          <strong data-reveal>You became both.</strong>
-        </div>
-      </section>
-
+      {/* 05 · For you, always */}
       <section className="letter-section content-section" aria-labelledby="letter-title">
         <div className="letter-wrap">
-          <p className="section-number" data-reveal>04 · For you, always</p>
-          <h2 id="letter-title" data-reveal>Nanna, this is for you…</h2>
+          <p className="section-number" data-reveal>05 · For you, always</p>
+          <h2 id="letter-title" data-reveal>Nanna, this birthday is different.</h2>
           <div className="letter-body">
-            <p data-reveal>Happiest Birthday to the person who means more to me than I can ever put into words.</p>
-            <p data-reveal>You have brought a kind of warmth into my life that I didn’t know I was missing. With you, even the most ordinary moments feel worth remembering.</p>
-            <p data-reveal>Thank you for every smile, every conversation, every quiet bit of care, and every time you have simply been there. You make this world—and my world—so much more beautiful just by being in it.</p>
-            <p data-reveal>I hope this year holds the same tenderness you give so freely to everyone around you. I hope you feel celebrated, protected, deeply understood, and endlessly loved.</p>
-            <p data-reveal>And on every day that follows, I hope you remember this:</p>
-            <p className="final-line" data-reveal>You are, and always will be, my favorite part of the story. <span aria-hidden="true">♥</span></p>
+            <p data-reveal>I don't want you to carry your past into this new year of your life.</p>
+            <p data-reveal>Whatever happened, let it stay there.</p>
+            <p data-reveal>No more looking back with regret.</p>
+            <p data-reveal>No more hurting yourself over wrong decisions.</p>
+            <p data-reveal>Take the lessons, leave the pain, and move forward.</p>
+            <div className="letter-highlight" data-reveal>
+              <p>You deserve a life filled with peace, happiness, love, and beautiful moments.</p>
+            </div>
+            <p data-reveal>I hope this new chapter brings you closer to everything you've ever wished for.</p>
+            <p data-reveal>And most importantly, I hope you never forget how special you are.</p>
+            <p className="final-line" data-reveal>
+              Happiest Birthday, Nanna. <span aria-hidden="true">❤️</span>
+            </p>
+            <p className="final-blessing" data-reveal>
+              May this be the beginning of your happiest chapter yet.
+            </p>
           </div>
-          <div className="signature" data-reveal><span>With all my love,</span><strong>Always yours</strong></div>
+          <div className="signature" data-reveal>
+            <span>With all my love,</span>
+            <strong>Always yours</strong>
+          </div>
         </div>
       </section>
     </main>
