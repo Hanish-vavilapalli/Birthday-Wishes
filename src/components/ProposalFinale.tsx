@@ -269,7 +269,7 @@ export function ProposalFinale() {
         {/* STAGE 1 & 2: THE BIRTHDAY CAKE */}
         {(stage === "CAKE" || stage === "BLOWING") && (
           <div className={`cake-stage ${stage === "BLOWING" ? "is-blowing" : ""}`}>
-            <div className="cake-header" data-reveal>
+            <div className="cake-header">
               <p className="finale-kicker">A little piece of forever</p>
               <h2 className="finale-title">
                 One last little wish… <span className="glowing-star">✨</span>
@@ -360,7 +360,7 @@ export function ProposalFinale() {
 
         {/* STAGE 3: THE PROPOSAL ENVELOPE / CARD */}
         {stage === "CARD" && (
-          <div className="card-stage" data-reveal>
+          <div className="card-stage">
             <div className="card-3d-wrapper">
               <div className="card-ambient-lights">
                 <span className="light-orb o-1" />
@@ -532,19 +532,19 @@ export function ProposalFinale() {
             {/* Paced Narrative Climax Text */}
             <div className="climax-text-wrap">
               {climaxStep >= 1 && (
-                <p className="climax-lead" data-reveal>
+                <p className="climax-lead">
                   And just like that…
                 </p>
               )}
 
               {climaxStep >= 2 && (
-                <h2 className="climax-heading" data-reveal>
+                <h2 className="climax-heading">
                   Our next chapter begins. <span className="beating-heart">❤️</span>
                 </h2>
               )}
 
               {climaxStep >= 3 && (
-                <div className="climax-footer" data-reveal>
+                <div className="climax-footer">
                   <p className="climax-ring-promise">💍 Forever and always ✨</p>
                   <button type="button" className="replay-btn" onClick={handleReplay}>
                     <span>Replay this moment</span>

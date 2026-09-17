@@ -703,45 +703,42 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
 
 /* CARD STAGE */
 .card-stage {
-  animation: cardMorphIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardMorphIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
 }
 .card-3d-wrapper {
   position: relative;
-  perspective: 1200px;
   margin: 2rem auto;
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 .card-ambient-lights {
-  position: absolute;
-  inset: -15%;
-  pointer-events: none;
+  display: none !important;
 }
-.light-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.35;
-  animation: floatOrb 8s ease-in-out infinite alternate;
-}
-.o-1 { top: 10%; left: 10%; width: 180px; height: 180px; background: var(--primary); }
-.o-2 { bottom: 10%; right: 10%; width: 220px; height: 220px; background: #FF4D6D; animation-delay: -3s; }
-.o-3 { top: 40%; right: 30%; width: 140px; height: 140px; background: #FFD700; animation-delay: -5s; }
 
 .envelope-letter-box {
   position: relative;
-  width: min(100%, 540px);
+  width: min(100%, 530px);
   margin: 0 auto;
   border-radius: 1.5rem;
-  padding: 3px;
-  background: linear-gradient(145deg, rgba(255, 180, 200, 0.6), rgba(255, 90, 120, 0.15) 50%, rgba(255, 215, 0, 0.4));
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75), 0 0 60px color-mix(in oklab, var(--primary) 28%, transparent);
+  padding: 2px;
+  background: linear-gradient(145deg, rgba(255, 180, 200, 0.8), rgba(220, 50, 80, 0.35) 50%, rgba(255, 215, 0, 0.65));
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(228, 59, 90, 0.35);
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 .proposal-card-inner {
   position: relative;
-  background: linear-gradient(175deg, oklch(0.16 0.035 16) 0%, oklch(0.11 0.02 15) 100%);
-  border-radius: calc(1.5rem - 3px);
-  padding: 3.5rem 2.5rem 4rem;
-  backdrop-filter: blur(16px);
+  background: #181116;
+  background: linear-gradient(175deg, #22141c 0%, #130d12 100%);
+  border-radius: calc(1.5rem - 2px);
+  padding: 3.5rem 2.2rem 4rem;
   overflow: visible;
+  filter: none !important;
+  -webkit-filter: none !important;
+  -webkit-font-smoothing: antialiased;
 }
 .ring-icon-wrapper {
   position: relative;
@@ -764,7 +761,8 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
 .card-kicker {
   margin: 0 0 1rem;
   color: var(--rose-light);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
@@ -773,9 +771,9 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
   font-family: var(--font-serif);
   font-size: clamp(2.4rem, 6.5vw, 4rem);
   font-weight: 400;
-  color: var(--foreground);
+  color: #FFFFFF;
   line-height: 1.15;
-  text-shadow: 0 0 35px color-mix(in oklab, var(--primary) 40%, transparent);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 25px color-mix(in oklab, var(--primary) 30%, transparent);
 }
 .proposal-heart-tag {
   margin: 0.6rem 0 2.5rem;
@@ -816,14 +814,14 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   background: linear-gradient(135deg, #FF4D6D 0%, #E63946 60%, #C9184A 100%);
   color: #FFFFFF;
-  box-shadow: 0 8px 32px rgba(230, 57, 70, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(230, 57, 70, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.4);
   animation: yesGlow 2.5s ease-in-out infinite alternate;
 }
 .btn-yes:hover {
-  box-shadow: 0 12px 42px rgba(230, 57, 70, 0.8);
+  box-shadow: 0 12px 42px rgba(230, 57, 70, 0.85);
 }
 .btn-yes .btn-heart {
   font-size: 1.2rem;
@@ -834,13 +832,14 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
   transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 .btn-no {
-  border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--card) 70%, transparent);
-  color: var(--muted-foreground);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 .btn-no:hover {
-  background: color-mix(in oklab, var(--card) 90%, transparent);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* CELEBRATION STAGE */
@@ -1025,8 +1024,8 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
 }
 
 @keyframes cardMorphIn {
-  0% { opacity: 0; transform: translateY(40px) scale(0.92) rotateX(15deg); }
-  100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); }
+  0% { opacity: 0; transform: translateY(25px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes floatOrb {
@@ -1093,8 +1092,8 @@ h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: cla
 }
 
 @keyframes climaxFade {
-  0% { opacity: 0; transform: translateY(22px); filter: blur(6px); }
-  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 640px) {
